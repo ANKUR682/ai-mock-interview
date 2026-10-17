@@ -1,0 +1,105 @@
+{
+  "entities": {
+    "Interview": {
+      "title": "Interview",
+      "description": "Represents a mock interview session and AI evaluation report",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID of the interview session"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the user who took the interview"
+        },
+        "userEmail": {
+          "type": "string",
+          "description": "Email address of the user"
+        },
+        "jobTitle": {
+          "type": "string",
+          "description": "Target job title for the mock interview",
+          "maxLength": 150
+        },
+        "jobDescription": {
+          "type": "string",
+          "description": "Job description or key skills required",
+          "maxLength": 5000
+        },
+        "yearsOfExperience": {
+          "type": "string",
+          "description": "Candidate experience level",
+          "maxLength": 50
+        },
+        "status": {
+          "type": "string",
+          "enum": ["in_progress", "completed"],
+          "description": "Current status of the interview session"
+        },
+        "questions": {
+          "type": "array",
+          "description": "List of 5 AI generated questions"
+        },
+        "answers": {
+          "type": "array",
+          "description": "Candidate responses for each question"
+        },
+        "evaluation": {
+          "type": "object",
+          "description": "AI evaluation breakdown and scoring"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp in ISO format"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last updated timestamp in ISO format"
+        }
+      },
+      "required": ["userId", "jobTitle", "status", "createdAt"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile metadata",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User display name"
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "Profile picture URL"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Account registration timestamp"
+        }
+      },
+      "required": ["uid", "email"]
+    }
+  },
+  "firestore": {
+    "/interviews/{interviewId}": {
+      "schema": "Interview",
+      "description": "Mock interview sessions collection"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile records"
+    }
+  }
+}

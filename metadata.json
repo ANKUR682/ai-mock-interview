@@ -1,0 +1,6 @@
+{
+  "name": "InterviewAI - AI Mock Interview Platform",
+  "description": "Prepare for your dream job with AI-powered mock interviews, instant speech-to-text practice, realistic voice questions, and comprehensive scoring evaluations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
